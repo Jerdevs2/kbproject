@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+<form method="POST" name="google-sheet">
+    <div class="input-text1">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="First Name"><br>
+        <label for="fname">Last name:</label><br>
+        <input type="text" id="fname" name="Last Name"><br>
+    </div>
+    <input type="submit" name="submit" value="Submit">
+</form>
+
+
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzNm4PXkqmbBY4XgvifH87r_v3GnqXFs52ZzcIC5WRvKDRANtEid68JCsUBQwzuxUJ3fg/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>

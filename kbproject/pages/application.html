@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now</title>
+    <link rel="icon" href="/img/icon.png" type="image/icon type">
+    <style type="text/css" id="custom-background-css">
+        body {
+            background-color: #55c2d9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-logo">
+        <a href="/index.html" aria-current="page" class="logo-main-page"><img loading="lazy" height="100"
+                src="/img/logo1.png" alt="kb staples" class="image-5"></a>
+    </div>
+
+    <div class="row">
+
+        <form id="form1" method="post" name="google-sheet">
+            <div class="input-text1">
+                <label for="fname">Full name ex. &#40;<i>Paglinawan, Paul Azi O.</i>&#41;</label><br>
+                <input type="text" id="fname" name="Full Name" required=""><br>
+            </div>
+
+            <div class="input-text2">
+                <label for="lname">Email:</label><br>
+                <input type="text" id="email" name="Email" required=""><br>
+            </div>
+
+            <div class="option1">
+                <label for="first-p">Do you have BPO experince?</label><br>
+                <select class="form-option1" name="Do you have BPO experince?" id="rate-scale" required="">
+                    <option selected="" disabled="" hidden="" value=""></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="input-text3">
+                <label for="indstrs">What industries have you worked in?</label><br>
+                <input type="text" id="indstrs" name="What industries have you worked in?" required=""><br>
+            </div>
+
+            <div class="option2">
+                <label for="second-p">What are you applying for?</label><br>
+                <select class="form-option2" name="What are you applying for?" id="rate-scale" required="">
+                    <option selected="" disabled="" hidden="" value=""></option>
+                    <option value="Customer Service">Customer Service</option>
+                    <option value="Appointment Setter">Appointment Setter</option>
+                    <option value="Cold Caller">Cold Caller</option>
+                    <option value="Virtual Assistant">Virtual Assistant</option>
+                </select>
+            </div>
+
+            <div class="option3">
+                <label for="third-p">How many years of experience do you have in appointment setting?</label><br>
+                <select class="form-option3" name="Years of Experience" id="rate-scale" required="">
+                    <option selected="" disabled="" hidden="" value=""></option>
+                    <option value="Less than a Year">Less than a Year</option>
+                    <option value="1-2 Years">1-2 Years</option>
+                    <option value="3-4 Years">3-4 Years</option>
+                    <option value="4 or more Years">4 or more Years</option>
+                </select>
+            </div>
+
+            <div class="input-text4">
+                <label for="rspnsblts">What were your daily responsibilities in your previous appointment setting
+                    roles?</label><br>
+                <input type="text" id="rspnsblts" name="Daily Responsibilities" required=""><br>
+            </div>
+
+            <div class="input-text5">
+                <label for="stools">What software or tools are you proficient in using?</label><br>
+                <input type="text" id="stools" name="Software or Tools that proficient in using" required=""><br>
+            </div>
+
+            <div class="option4">
+                <label class="rate-comm">Please rate your phone communication skills on a scale of 1 to 10.</label><br>
+                <select class="form-option4" name="Phone Communication Rate" id="rate-scale" required="">
+                    <option selected="" disabled="" hidden="" value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+
+            <div class="option5">
+                <label for="first-p">Are you available to work 8 hours a day, Monday to Friday?</label><br>
+                <select class="form-option1" name="Availability to work 8 hours a day" id="rate-scale" required="">
+                    <option selected="" disabled="" hidden="" value=""></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="input-text6">
+                <label for="salary">What is your desired salary range?</label><br>
+                <input type="text" id="salary" name="Desired Salary Range" required=""><br>
+            </div>
+
+            <div class="files1">
+                <label for="vsample">Please provide a voice sample.</label><br>
+                <input type="file" id="vsample" name="Voice Sample"><br>
+            </div>
+
+            <div class="files2">
+                <label for="resume">Submit your cover letter or resume.</label><br>
+                <input type="file" id="resume" name="resume"><br>
+            </div>
+            <br>
+            <input type="submit" id="submitBtn" value="Submit" name="submit" onclick="myFunction()"><br>
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+        function myFunction() {
+            alert("Thank You for Submitting!!");
+            window.location="ty.html";
+        }
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzNm4PXkqmbBY4XgvifH87r_v3GnqXFs52ZzcIC5WRvKDRANtEid68JCsUBQwzuxUJ3fg/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+
+    </script>
+
+</body>
+
+</html>
